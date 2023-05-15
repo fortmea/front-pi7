@@ -28,10 +28,10 @@ class Quarto {
     return data;
   }
 
-  //buscar quartos na api em localhost:3000/api/integrador/quarto
+  //buscar quartos na api em localhost:8080/api/integrador/quarto
   static Future<List<Quarto>> getQuartos() async {
     final response = await http
-        .get(Uri.parse('http://localhost:3000/api/integrador/quarto'));
+        .get(Uri.parse('http://localhost:8080/api/quartos'));
     if (response.statusCode == 200) {
       List<dynamic> body = jsonDecode(response.body);
 
@@ -43,10 +43,10 @@ class Quarto {
     }
   }
 
-  //salvar quarto na api em localhost:3000/api/integrador/quarto
+  //salvar quarto na api em localhost:8080/api/integrador/quarto
   static Future<bool> saveQuarto(Quarto quarto) async {
     final response = await http.post(
-      Uri.parse('http://localhost:3000/api/integrador/quarto'),
+      Uri.parse('http://localhost:8080/api/quartos'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -59,10 +59,10 @@ class Quarto {
     }
   }
 
-  //atualizar quarto na api em localhost:3000/api/integrador/quarto
+  //atualizar quarto na api em localhost:8080/api/integrador/quarto
   static Future<Quarto> updateQuarto(Quarto quarto) async {
     final response = await http.put(
-      Uri.parse('http://localhost:3000/api/integrador/quarto'),
+      Uri.parse('http://localhost:8080/api/quartos'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -75,10 +75,10 @@ class Quarto {
     }
   }
 
-  //deletar quarto na api em localhost:3000/api/integrador/quarto
+  //deletar quarto na api em localhost:8080/api/integrador/quarto
   static Future<bool> deleteQuarto(int codigo) async {
     final response = await http.delete(
-      Uri.parse('http://localhost:3000/api/integrador/quarto?codigo=$codigo'),
+      Uri.parse('http://localhost:8080/api/quartos?codigo=$codigo'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

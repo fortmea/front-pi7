@@ -34,9 +34,9 @@ class Funcionario {
     };
   }
   
-  // Função para buscar funcionários na API em http://localhost:3000/api/integrador/funcionario
+  // Função para buscar funcionários na API em http://localhost:8080/api/funcionarios
   static Future<List<Funcionario>> getFuncionarios() async {
-    final response = await http.get(Uri.parse('http://localhost:3000/api/integrador/funcionario'));
+    final response = await http.get(Uri.parse('http://localhost:8080/api/funcionarios'));
 
     if (response.statusCode == 200) {
       List<dynamic> body = jsonDecode(response.body);
@@ -47,10 +47,10 @@ class Funcionario {
     }
   }
 
-  // Função para salvar um funcionário na API em http://localhost:3000/api/integrador/funcionario
+  // Função para salvar um funcionário na API em http://localhost:8080/api/funcionarios
   static Future<bool> saveFuncionario(Funcionario funcionario) async {
     final response = await http.post(
-      Uri.parse('http://localhost:3000/api/integrador/funcionario'),
+      Uri.parse('http://localhost:8080/api/funcionarios'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -64,10 +64,10 @@ class Funcionario {
     }
   }
 
-  // Função para atualizar um funcionário na API em http://localhost:3000/api/integrador/funcionario/:codigo
+  // Função para atualizar um funcionário na API em http://localhost:8080/api/funcionarios/:codigo
   static Future<bool> updateFuncionario(Funcionario funcionario) async {
     final response = await http.put(
-      Uri.parse('http://localhost:3000/api/integrador/funcionario'),
+      Uri.parse('http://localhost:8080/api/funcionarios'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -81,10 +81,10 @@ class Funcionario {
     }
   }
 
-  // Função para excluir um funcionário na API em http://localhost:3000/api/integrador/funcionario/:codigo
+  // Função para excluir um funcionário na API em http://localhost:8080/api/funcionarios/:codigo
   static Future<bool> deleteFuncionario(int codigo) async {
     final response = await http.delete(
-      Uri.parse('http://localhost:3000/api/integrador/funcionario?codigo=$codigo'),
+      Uri.parse('http://localhost:8080/api/funcionarios?codigo=$codigo'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

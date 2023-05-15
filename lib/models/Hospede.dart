@@ -44,7 +44,7 @@ class Hospede {
   //buscar hospedes na api em localhost:3000/api/integrador/hospede
   static Future<List<Hospede>> getHospedes() async {
     final response = await http
-        .get(Uri.parse('http://localhost:3000/api/integrador/hospede'));
+        .get(Uri.parse('http://localhost:8080/api/hospedes'));
     if (response.statusCode == 200) {
       List<dynamic> body = jsonDecode(response.body);
 
@@ -60,7 +60,7 @@ class Hospede {
   //salvar hospede na api em localhost:3000/api/integrador/hospede
   static Future<bool> saveHospede(Hospede hospede) async {
     final response = await http.post(
-      Uri.parse('http://localhost:3000/api/integrador/hospede'),
+      Uri.parse('http://localhost:8080/api/hospedes'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -77,7 +77,7 @@ class Hospede {
   //atualizar hospede na api em localhost:3000/api/integrador/hospede
   static Future<bool> updateHospede(Hospede hospede) async {
     final response = await http.put(
-      Uri.parse('http://localhost:3000/api/integrador/hospede'),
+      Uri.parse('http://localhost:8080/api/hospedes'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -94,7 +94,7 @@ class Hospede {
 //deletar hospede na api em localhost:3000/api/integrador/hospede
   static Future<bool> deleteHospede(int codigo) async {
     final response = await http.delete(
-      Uri.parse('http://localhost:3000/api/integrador/hospede?codigo=$codigo'),
+      Uri.parse('http://localhost:8080/api/hospedes?codigo=$codigo'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

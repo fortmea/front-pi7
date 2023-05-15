@@ -47,7 +47,7 @@ class Hospedagem {
   //buscar hospedagens na api em localhost:3000/api/integrador/hospedagem
   static Future<List<Hospedagem>> getHospedagens() async {
     final response = await http
-        .get(Uri.parse('http://localhost:3000/api/integrador/hospedagem'));
+        .get(Uri.parse('http://localhost:8080/api/hospedagens'));
     if (response.statusCode == 200) {
       List<dynamic> body = jsonDecode(response.body);
 
@@ -62,7 +62,7 @@ class Hospedagem {
   //salvar hospedagem na api em localhost:3000/api/integrador/hospedagem
   static Future<bool> saveHospedagem(Hospedagem hospedagem) async {
     final response = await http.post(
-      Uri.parse('http://localhost:3000/api/integrador/hospedagem'),
+      Uri.parse('http://localhost:8080/api/hospedagens'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -79,7 +79,7 @@ class Hospedagem {
   static Future<bool> deleteHospedagem(Hospedagem hospedagem) async {
     final response = await http.delete(
       Uri.parse(
-          'http://localhost:3000/api/integrador/hospedagem?codigo=${hospedagem.codigo}'),
+          'http://localhost:8080/api/hospedagens?codigo=${hospedagem.codigo}'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -94,7 +94,7 @@ class Hospedagem {
   //atualizar hospedagem na api em localhost:3000/api/integrador/hospedagem
   static Future<bool> updateHospedagem(Hospedagem hospedagem) async {
     final response = await http.put(
-      Uri.parse('http://localhost:3000/api/integrador/hospedagem'),
+      Uri.parse('http://localhost:8080/api/hospedagens'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

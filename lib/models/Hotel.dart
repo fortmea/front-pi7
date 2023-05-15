@@ -23,10 +23,10 @@ class Hotel {
         'nomeFantasia': nomeFantasia,
         'cnpj': cnpj,
       };
-  //funcao para salvar o Hotel na api em http://localhost:3000/api/integrador/hotel
+  //funcao para salvar o Hotel na api em http://localhost:8080/api/hoteis
   static Future<bool> saveHotel(Hotel hotel) async {
     final response = await http.post(
-      Uri.parse('http://localhost:3000/api/integrador/hotel'),
+      Uri.parse('http://localhost:8080/api/hoteis'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -40,9 +40,9 @@ class Hotel {
     }
   }
 
-  //funcao para buscar os hoteis na api em http://localhost:3000/api/integrador/hotel
+  //funcao para buscar os hoteis na api em http://localhost:8080/api/hoteis
   static Future<List<Hotel>> getHoteis() async {
-    final response = await http.get(Uri.parse('http://localhost:3000/api/integrador/hotel'));
+    final response = await http.get(Uri.parse('http://localhost:8080/api/hoteis'));
 
     if (response.statusCode == 200) {
       List<dynamic> body = jsonDecode(response.body);
@@ -53,10 +53,10 @@ class Hotel {
       throw Exception('Não foi possível buscar os hoteis.');
     }
   }
-  //funcao para atualizar um hotel em http://localhost:3000/api/integrador/hotel
+  //funcao para atualizar um hotel em http://localhost:8080/api/hoteis
   static Future<bool> updateHotel(Hotel hotel) async {
     final response = await http.put(
-      Uri.parse('http://localhost:3000/api/integrador/hotel'),
+      Uri.parse('http://localhost:8080/api/hoteis'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -69,10 +69,10 @@ class Hotel {
       throw Exception('Falha ao atualizar o hotel.');
     }
   }
-  //funcao para excluir um hotel na api em http://localhost:3000/api/integrador/hotel
+  //funcao para excluir um hotel na api em http://localhost:8080/api/hoteis
   static Future<bool> deleteHotel(int codigo) async {
     final response = await http.delete(
-      Uri.parse('http://localhost:3000/api/integrador/hotel?codigo=$codigo'),
+      Uri.parse('http://localhost:8080/api/hoteis?codigo=$codigo'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

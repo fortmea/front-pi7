@@ -21,7 +21,7 @@ class Cargo{
   }
   //buscar cargos na api em localhost:3000/api/integrador/cargo
   static Future<List<Cargo>> getCargos() async {
-    final response = await http.get(Uri.parse('http://localhost:3000/api/integrador/cargo'));
+    final response = await http.get(Uri.parse('http://localhost:8080/api/cargos'));
     if (response.statusCode == 200) {
       List<dynamic> body = jsonDecode(response.body);
       List<Cargo> cargos = body.map((dynamic item) => Cargo.fromJson(item)).toList();
@@ -33,7 +33,7 @@ class Cargo{
   //salvar cargo na api em localhost:3000/api/integrador/cargo
   static Future<bool> saveCargo(Cargo cargo) async {
     final response = await http.post(
-      Uri.parse('http://localhost:3000/api/integrador/cargo'),
+      Uri.parse('http://localhost:8080/api/cargos'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -50,7 +50,7 @@ class Cargo{
   //atualizar cargo na api em localhost:3000/api/integrador/cargo
   static Future<bool> updateCargo(Cargo cargo) async {
     final response = await http.put(
-      Uri.parse('http://localhost:3000/api/integrador/cargo'),
+      Uri.parse('http://localhost:8080/api/cargos'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -67,7 +67,7 @@ class Cargo{
   //deletar cargo na api em localhost:3000/api/integrador/cargo
   static Future<bool> deleteCargo(int codigo) async {
     final response = await http.delete(
-      Uri.parse('http://localhost:3000/api/integrador/cargo?codigo=$codigo'),
+      Uri.parse('http://localhost:8080/api/cargos?codigo=$codigo'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
