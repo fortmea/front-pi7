@@ -57,7 +57,7 @@ class Funcionario {
       body: jsonEncode(funcionario.toJson()),
     );
 
-    if (response.statusCode == 200) {
+    if (response.statusCode == 201) {
       return true;
     } else {
       throw Exception('Falha ao salvar o funcionário.');
@@ -84,7 +84,7 @@ class Funcionario {
   // Função para excluir um funcionário na API em http://localhost:8080/api/funcionarios/:codigo
   static Future<bool> deleteFuncionario(int codigo) async {
     final response = await http.delete(
-      Uri.parse('http://localhost:8080/api/funcionarios?codigo=$codigo'),
+      Uri.parse('http://localhost:8080/api/funcionarios/$codigo'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

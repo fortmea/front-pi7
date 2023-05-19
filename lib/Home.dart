@@ -14,7 +14,7 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           title: Text('Campus Hotels'),
         ),
-        backgroundColor: Color(0xff7697d2),
+        backgroundColor: Color.fromARGB(0, 255, 255, 255),
         body: Center(
           child: SizedBox(
               width: MediaQuery.of(context).devicePixelRatio * 350,

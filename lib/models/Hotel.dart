@@ -33,7 +33,7 @@ class Hotel {
       body: jsonEncode(hotel.toJson()),
     );
 
-    if (response.statusCode == 200) {
+    if (response.statusCode == 201) {
       return true;
     } else {
       throw Exception('Falha ao salvar o hotel.');
@@ -72,7 +72,7 @@ class Hotel {
   //funcao para excluir um hotel na api em http://localhost:8080/api/hoteis
   static Future<bool> deleteHotel(int codigo) async {
     final response = await http.delete(
-      Uri.parse('http://localhost:8080/api/hoteis?codigo=$codigo'),
+      Uri.parse('http://localhost:8080/api/hoteis/$codigo'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

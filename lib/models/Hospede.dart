@@ -67,7 +67,7 @@ class Hospede {
       body: jsonEncode(hospede.toJson()),
     );
     print(response.statusCode);
-    if (response.statusCode == 200) {
+    if (response.statusCode == 201) {
       return true;
     } else {
       throw Exception('Falha ao salvar o hospede.');
@@ -94,7 +94,7 @@ class Hospede {
 //deletar hospede na api em localhost:3000/api/integrador/hospede
   static Future<bool> deleteHospede(int codigo) async {
     final response = await http.delete(
-      Uri.parse('http://localhost:8080/api/hospedes?codigo=$codigo'),
+      Uri.parse('http://localhost:8080/api/hospedes/$codigo'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

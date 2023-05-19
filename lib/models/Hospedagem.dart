@@ -68,7 +68,7 @@ class Hospedagem {
       },
       body: jsonEncode(hospedagem.toJson()),
     );
-    if (response.statusCode == 200) {
+    if (response.statusCode == 201) {
       return true;
     } else {
       throw Exception('Falha ao salvar a hospedagem.');
@@ -79,7 +79,7 @@ class Hospedagem {
   static Future<bool> deleteHospedagem(Hospedagem hospedagem) async {
     final response = await http.delete(
       Uri.parse(
-          'http://localhost:8080/api/hospedagens?codigo=${hospedagem.codigo}'),
+          'http://localhost:8080/api/hospedagens/${hospedagem.codigo}'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

@@ -1,4 +1,5 @@
 import 'package:faculhotel/Home.dart';
+import 'package:faculhotel/Login.dart';
 import 'package:faculhotel/hotel_screen.dart';
 import 'package:faculhotel/quarto_screen.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +33,6 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
         ),
         title: 'Campus Hotels',
-        home: Home());
+        home: Login());
   }
 }
